@@ -1,0 +1,145 @@
+:root {
+    --primary: #f330a1;
+    --business: #3A82ee;
+    --light: #eee;
+    --grey: #888;
+    --dark: #313154;
+    --darker: #1c1c2d;
+    --danger: #ff5b57;
+    --shadow: 0 1 3px rgba(0, 0, 0, 0.1);
+    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+}
+
+h3 {
+    color: var(--dark);
+    font-size: 1.65rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--grey);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* page top banner */
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: var(--light);
+    height: 10rem;
+    margin-bottom: 2.5rem;
+}
+
+/* fern image in page banner */
+#headerpic {
+    max-width: 120px;
+    padding-right: 1.5rem;
+}
+
+/* introduction paragraph */
+.intro {
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    
+}
+
+/* date picker */
+form {
+    width: 90%;
+    margin: 3.5rem auto;
+}
+
+select, input {
+    padding: .50rem;
+    font-size: 1rem;
+    border: none;
+}
+
+/* show previous/next arrows on calendar */
+.ui-datepicker-next, .ui-datepicker-prev {
+    display: visible;
+}
+
+/* change font/padding in calendar */
+.ui-datepicker { 
+    font-size: 1.125rem !important;
+    padding: .25rem;
+    z-index: 1;
+}
+
+.location {
+    height: 35px;
+    justify-items: left;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+select {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#depart, #return{
+    width: 58%;
+}
+
+#time {
+    width: 41%;
+    padding: 6px;
+}
+
+#submit {
+    width: 100%;
+    background-color: var(--primary);
+    color: hsl(0, 0%, 100%);
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: .25rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    <link href="https://code.jquery.com/ui/1.13.2/themes/dot-luv/jquery-ui.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./date-picker.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="app">
+      <section class="page-title">
+        <img id="headerpic" src="./images/fern.png" alt="fern" />
+        <h2 class="title">New Zealand Tourism</h2>
+      </section>
+
+      <section class="intro">
+        To help us locate the best travel option for your stay, please enter the
+        following information:
+      </section>
+        
+      <section class="date-selection">
+        <form action="" method="post" autocomplete="off">
+          <h3>Select pick up</h3>
+          <div class="location">
+            <select type="text" id="orgin">
+              <option>Auckland</option>
+              <option>Hamilton</option>
+              <option>New Plymouth</option>
+              <option>Tauranga</option>
+              <option>Hamilton</option>
+              <option>Wellington</option>
+              <option>Picton</option>
+              <option>Nelson</option>
+              <option>Hanmer Springs</option>
+              <option>Christchurch</option>
+              <option>Queenstown</option>
+              <option>Dunedin</option>
+              <option>Invercargill</option>
+            </select>
+            <input type="text" id="depart" placeholder="depart date">
+            <input type="time" id="time">
+          </div>
+
+          <h3>Select drop off</h3>
+          <div class="location">
+            <select type="text" id="destination">
+              <option>Same as pick up</option>
+              <option>Auckland</option>
+              <option>Hamilton</option>
+              <option>New Plymouth</option>
+              <option>Tauranga</option>
+              <option>Hamilton</option>
+              <option>Wellington</option>
+              <option>Picton</option>
+              <option>Nelson</option>
+              <option>Hanmer Springs</option>
+              <option>Christchurch</option>
+              <option>Queenstown</option>
+              <option>Dunedin</option>
+              <option>Invercargill</option>
+            </select>
+            <input type="text" id="return" placeholder="return date">
+            <input type="time" id="time">
+          </div>
+
+          <div class="location">
+            <select id="passengers" value="passengers">
+              <option>Passengers</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <input id="submit" type="submit" value="Submit">
+          </div>
+        </form>
+      </section>
+
+
+    </main>
+       
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./main.js"></script>
+    
+  </body>
+</html>
