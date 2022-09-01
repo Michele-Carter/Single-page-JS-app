@@ -13,75 +13,143 @@
   </head>
   <body>
     <main class="app">
-      <section class="page-title">
-        <img id="headerpic" src="./images/fern.png" alt="fern" />
-        <h2 class="title">New Zealand Tourism</h2>
-      </section>
-
-      <section class="intro">
-        To help us locate the best travel option for your stay, please enter the
-        following information:
-      </section>
+  
+      <section class="main-section">
+        <header>
+          <h5 class="covidLink">
+          Important information regarding Covid-19
+          </h5>
+          <h5 class="lang">ENG/NZ</h5>
+        </header>
         
-      <section class="date-selection">
-        <form action="" method="post" autocomplete="off">
-          <h3>Select pick up</h3>
-          <div class="location">
-            <select type="text" id="orgin">
-              <option>Auckland</option>
-              <option>Hamilton</option>
-              <option>New Plymouth</option>
-              <option>Tauranga</option>
-              <option>Hamilton</option>
-              <option>Wellington</option>
-              <option>Picton</option>
-              <option>Nelson</option>
-              <option>Hanmer Springs</option>
-              <option>Christchurch</option>
-              <option>Queenstown</option>
-              <option>Dunedin</option>
-              <option>Invercargill</option>
-            </select>
-            <input type="text" id="depart" placeholder="depart date">
-            <input type="time" id="time">
-          </div>
+        <section class="page-title">
+          <h2>New Zealand Tourism</h2>
+        </section>
+        <h3 class="intro">
+          To help us locate the best travel option for your stay, please enter the following information
+        </h3>
+        
+        <section class="date-selection">
+        
+          <form id="pickUp" action="" method="post" autocomplete="off">
+            <h3 class="selectPickUpDropOff">Select pick up</h3>
+            <div class="location">
+              <select type="text" id="orgin">
+                <option>Auckland</option>
+                <option>Hamilton</option>
+                <option>New Plymouth</option>
+                <option>Tauranga</option>
+                <option>Hamilton</option>
+                <option>Wellington</option>
+                <option>Picton</option>
+                <option>Nelson</option>
+                <option>Hanmer Springs</option>
+                <option>Christchurch</option>
+                <option>Queenstown</option>
+                <option>Dunedin</option>
+                <option>Invercargill</option>
+              </select>
+              <input type="text" id="depart" placeholder="depart date">
+              <input type="time" id="time">
+              <select id="passengers" value="passengers">
+                <option>Passengers</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+          </form>
 
-          <h3>Select drop off</h3>
-          <div class="location">
-            <select type="text" id="destination">
-              <option>Same as pick up</option>
-              <option>Auckland</option>
-              <option>Hamilton</option>
-              <option>New Plymouth</option>
-              <option>Tauranga</option>
-              <option>Hamilton</option>
-              <option>Wellington</option>
-              <option>Picton</option>
-              <option>Nelson</option>
-              <option>Hanmer Springs</option>
-              <option>Christchurch</option>
-              <option>Queenstown</option>
-              <option>Dunedin</option>
-              <option>Invercargill</option>
-            </select>
-            <input type="text" id="return" placeholder="return date">
-            <input type="time" id="time">
-          </div>
+          <form id="dropOff" action="" method="post" autocomplete="off">
+            <h3 class="selectPickUpDropOff">Select drop off</h3>
+            <div class="location">
+              <select type="text" id="destination">
+                <option>Same as pick up</option>
+                <option>Auckland</option>
+                <option>Hamilton</option>
+                <option>New Plymouth</option>
+                <option>Tauranga</option>
+                <option>Hamilton</option>
+                <option>Wellington</option>
+                <option>Picton</option>
+                <option>Nelson</option>
+                <option>Hanmer Springs</option>
+                <option>Christchurch</option>
+                <option>Queenstown</option>
+                <option>Dunedin</option>
+                <option>Invercargill</option>
+              </select>
+              <input type="text" id="return" placeholder="return date">
+              <input type="time" id="time">
+              <select id="passengers" value="passengers">
+                <option>Passengers</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+          </form>
+        </section>
 
-          <div class="location">
-            <select id="passengers" value="passengers">
-              <option>Passengers</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-            <input id="submit" type="submit" value="Submit">
-          </div>
-        </form>
+        <section class="submit">
+          <input id="submit" type="submit" value="Submit">
+        </section>
+
       </section>
+
+      <section class="options">
+        
+        <div class="addvert1">
+          <p class="adCap">Top New Zealand travel iteneries</p>
+        </div>
+          
+        <div class="addvert2">
+          <p class="adCap">Driving around New Zealand</p>
+        </div>
+
+        <div class="addvert3">
+          <p class="adCap">Things to do</p>
+        </div>
+          
+        <div class="addvert4">
+          <p class="adCap">Places to see</p>
+        </div>
+      </section>
+
+      <footer>
+        <div class="container">
+          <img class="bottomLogo" src="./images/NZTLogo.png">
+        </div>
+        <div class="firstCol">
+          <h2>Connect with us</h2>
+          <h5 class="h5li">Facebook</h5>
+          <h5 class="h5li">Twitter</h5>
+          <h5 class="h5li">Instagram</h5>
+          <h5 class="h5li">Youtube</h5>
+        </div>
+        <div class="firstCol">
+          <h2>Plan your stay</h2>
+          <h5 class="h5li">View our top picks</h5>
+          <h5 class="h5li">Plan you itinery</h5>
+          <h5 class="h5li">Find accomodation</h5>
+          <h5 class="h5li">View our travel guide</h5>
+        </div>
+        <div class="firstCol">
+          <h2>About New Zealand</h2>
+          <h5 class="h5li">Our culture</h5>
+          <h5 class="h5li">Our climate</h5>
+          <h5 class="h5li">Driving in New Zealand</h5>
+          <h5 class="h5li">Other helpful sites</h5>
+        </div>
+        
+      </footer>
+
 
 
     </main>
