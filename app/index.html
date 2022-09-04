@@ -8,7 +8,7 @@
     
     <link href="https://code.jquery.com/ui/1.13.2/themes/dot-luv/jquery-ui.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./main.css" />
-    <link rel="stylesheet" href="./date-picker.css" />
+    <!-- <link rel="stylesheet" href="./date-picker.css" /> -->
     <title>Document</title>
   </head>
   <body>
@@ -49,8 +49,10 @@
                 <option>Dunedin</option>
                 <option>Invercargill</option>
               </select>
-              <input type="text" id="depart" placeholder="depart date">
-              <input type="time" id="time">
+              <div class="date-time">
+                <input type="text" id="depart" placeholder="depart date">
+                <input type="time" id="time">
+              </div>
               <select id="passengers" value="passengers">
                 <option>Passengers</option>
                 <option value="1">1</option>
@@ -82,8 +84,10 @@
                 <option>Dunedin</option>
                 <option>Invercargill</option>
               </select>
-              <input type="text" id="return" placeholder="return date">
-              <input type="time" id="time">
+              <div class="date-time">
+                <input type="text" id="return" placeholder="return date">
+                <input type="time" id="time">
+              </div>
               <select id="passengers" value="passengers">
                 <option>Passengers</option>
                 <option value="1">1</option>
@@ -98,7 +102,7 @@
         </section>
 
         <section class="submit">
-          <input id="submit" type="submit" value="Submit">
+          <button id="submit" type="submit" onclick="subclick()">submit</button>
         </section>
 
       </section>
@@ -120,6 +124,27 @@
         <div class="addvert4">
           <p class="adCap">Places to see</p>
         </div>
+      </section>
+
+      <section class="results">
+
+        <div class="results-pic">
+          <img class="results-pic" src="./images/motorbike.png">
+        </div>
+
+        <div class="results-specs">
+          <h3>2022 Yamaha RZ150</h3>
+          <div class="hrule"></div>
+          <div class="specs">
+            <p>3.7L/100km</p>
+            <p>$109 per day</p>
+            <p>Minimum hire - 1 day</p>
+            <p>Maximum hire - 5 days</p>
+          </div>
+          <div class="hrule"></div>
+          <p>Perfect for those on a budget or wanting a lightweight hire motorbike with a low seat height but still enough get up and go to get gone. Use this for a quick trip around the South Island or a complete New Zealand tour, she’ll love it either way.</p>
+        </div>
+
       </section>
 
       <footer>
