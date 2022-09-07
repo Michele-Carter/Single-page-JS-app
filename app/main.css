@@ -253,7 +253,7 @@ select {
     cursor: pointer;
     box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
     -webkit-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);;
+    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
 }
 
 .adCap {
@@ -269,34 +269,36 @@ select {
 
 /* results area */
 .results {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
-    grid-template-rows: repeat(2, 1fr);
+    display: flex;
     justify-items: center;
-    align-items: center;
+    /* align-items: center; */
     margin-top: 4rem;
     margin-bottom: 4rem;
     gap: 4rem;
-    height: 600px;
+    height: 250px;
 }
 
 .results-pic {
    width: 100%;
    height: auto;
-   grid-area: 1/2;  
 }
 
 .results-specs {
     width: 100%;
     height: auto;
-    grid-area: 1/3;
+    padding: 1rem;
+    box-shadow: 2px 1px 9px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 9px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 9px -4px rgba(0,0,0,0.75);
 }
 
 .specs {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin: .5rem;
+    justify-content: space-between;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
 }
 
 .hrule {
@@ -306,10 +308,30 @@ select {
     margin-bottom: .8rem;
 }
 
+#map-area {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 350px;
+}
+
+#map {
+    
+    width: 100%;
+    height: auto;
+
+}
+
+#output {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
 footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
+   
     width: 100%;
     height: 15rem;
     background-color: var(--darker);

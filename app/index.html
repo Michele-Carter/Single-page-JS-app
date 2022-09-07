@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    
     <link href="https://code.jquery.com/ui/1.13.2/themes/dot-luv/jquery-ui.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./main.css" />
     <!-- <link rel="stylesheet" href="./date-picker.css" /> -->
-    <title>Document</title>
+    <title>New Zealand Tourism</title>
   </head>
   <body>
     <main class="app">
@@ -34,20 +33,19 @@
           <form id="pickUp" action="" method="post" autocomplete="off">
             <h3 class="selectPickUpDropOff">Select pick up</h3>
             <div class="location">
-              <select type="text" id="orgin">
-                <option>Auckland</option>
-                <option>Hamilton</option>
-                <option>New Plymouth</option>
-                <option>Tauranga</option>
-                <option>Hamilton</option>
-                <option>Wellington</option>
-                <option>Picton</option>
-                <option>Nelson</option>
-                <option>Hanmer Springs</option>
-                <option>Christchurch</option>
-                <option>Queenstown</option>
-                <option>Dunedin</option>
-                <option>Invercargill</option>
+              <select type="text" id="origin">
+                <option value="auckland">Auckland</option>
+                <option value="hamilton">Hamilton</option>
+                <option value="new-plymouth">New Plymouth</option>
+                <option value="tauranga">Tauranga</option>
+                <option value="wellington">Wellington</option>
+                <option value="picton">Picton</option>
+                <option value="nelson">Nelson</option>
+                <option value="hanmer-springs">Hanmer Springs</option>
+                <option value="christchurch">Christchurch</option>
+                <option value="queenstown">Queenstown</option>
+                <option value="dunedin">Dunedin</option>
+                <option value="invercargill">Invercargill</option>
               </select>
               <div class="date-time">
                 <input type="text" id="depart" placeholder="depart date">
@@ -70,19 +68,18 @@
             <div class="location">
               <select type="text" id="destination">
                 <option>Same as pick up</option>
-                <option>Auckland</option>
-                <option>Hamilton</option>
-                <option>New Plymouth</option>
-                <option>Tauranga</option>
-                <option>Hamilton</option>
-                <option>Wellington</option>
-                <option>Picton</option>
-                <option>Nelson</option>
-                <option>Hanmer Springs</option>
-                <option>Christchurch</option>
-                <option>Queenstown</option>
-                <option>Dunedin</option>
-                <option>Invercargill</option>
+                <option value="auckland">Auckland</option>
+                <option value="hamilton">Hamilton</option>
+                <option value="new-plymouth">New Plymouth</option>
+                <option value="tauranga">Tauranga</option>
+                <option value="wellington">Wellington</option>
+                <option value="picton">Picton</option>
+                <option value="nelson">Nelson</option>
+                <option value="hanmer-springs">Hanmer Springs</option>
+                <option value="christchurch">Christchurch</option>
+                <option value="queenstown">Queenstown</option>
+                <option value="dunedin">Dunedin</option>
+                <option value="invercargill">Invercargill</option>
               </select>
               <div class="date-time">
                 <input type="text" id="return" placeholder="return date">
@@ -102,7 +99,7 @@
         </section>
 
         <section class="submit">
-          <button id="submit" type="submit" onclick="subclick()">submit</button>
+          <button id="submit" type="submit" onclick="">submit</button>
         </section>
 
       </section>
@@ -133,8 +130,8 @@
         </div>
 
         <div class="results-specs">
-          <h3>2022 Yamaha RZ150</h3>
-          <div class="hrule"></div>
+          <h4>2022 Yamaha RZ150</h4>
+          <!-- <div class="hrule"></div> -->
           <div class="specs">
             <p>3.7L/100km</p>
             <p>$109 per day</p>
@@ -142,9 +139,18 @@
             <p>Maximum hire - 5 days</p>
           </div>
           <div class="hrule"></div>
-          <p>Perfect for those on a budget or wanting a lightweight hire motorbike with a low seat height but still enough get up and go to get gone. Use this for a quick trip around the South Island or a complete New Zealand tour, she’ll love it either way.</p>
+          <p>Perfect for the budget concious traveller. Whether you want
+            a quick short trip or long haul, this motorbike is designed
+            for both comfort and speed.
+          </p>
         </div>
+   
 
+      </section>
+
+      <section class="results" id="map-area">
+        <div id="map"></div>
+        <div id="output"></div>
       </section>
 
       <footer>
@@ -178,9 +184,14 @@
 
 
     </main>
-       
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWY8fdswUsmJTb2IMFkey3tabqmSkFxwU&callback=initMap">
+    </script>
     <script src="./main.js"></script>
     
   </body>
