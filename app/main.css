@@ -9,6 +9,7 @@
     --darkest: rgb(0, 0, 0);
     --danger: #ff5b57;
     --shadow: 0 1 3px rgba(0, 0, 0, 0.1);
+    --btn: rgb(243, 87, 11);
     --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
     --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
@@ -24,10 +25,12 @@
 body {
     background: var(--light);
     color: var(--dark);
+    width: 100%;
+    height: 100vh;
 }
+
 h2 {
-    color: var(--white);
-    
+    color: var(--white);   
 }
 
 h3 {
@@ -42,7 +45,7 @@ h3 {
 }
 
 /* page top banner */
-header {
+.top-nav {
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
@@ -52,10 +55,18 @@ header {
     align-items: center;
 }
 
-/* text styling in top banner */
 .covidLink, .lang {
     text-decoration: underline;
     color: var(--white);
+}
+
+/* page header with pic and title */
+.page-header {
+    background-image: url(./images/2969-Lindis-Pass-Canterbury-Miles-Holden.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 2rem;
+    margin: 0;
 }
 
 /* NZ tourism area */
@@ -80,37 +91,13 @@ header {
     margin-top: 3rem;
 }
 
-.main-section {
-    background-image: url(./images/2969-Lindis-Pass-Canterbury-Miles-Holden.jpg);
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 2rem;
-}
-
-.selectPickUpDropOff {
-    padding-bottom: 1rem;
-    font-weight: 900;
-}
-
-.date-selection {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr, auto;
-}
-
 /* date picker */
 form {
-    width: 85%;
+    width: 100%;
     margin: 2.5rem auto;
     background-color: rgb(255, 255, 255, 0.35);
     padding: 1rem;
     border-radius: 5px;
-}
-
-select, input {
-    padding: .53rem;
-    font-size: 1rem;
-    border: none;
 }
 
 /* show previous/next arrows on calendar */
@@ -132,33 +119,31 @@ select, input {
     margin-bottom: .5rem;
 }
 
-select {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-#depart, #return{
-    width: 100%;
-    margin-bottom: 5px;
-    
-}
-
-.date-time {
+/* itinery area */
+.itinery-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3px;
+    grid-template-rows: auto;
+    gap: 2rem;
+    padding: 2.5rem;    
 }
 
-#time {
+#itinery-grid-left {
+    background-color: var(--dark);
+    border-radius: 5px;
     width: 100%;
-    padding: 6px;
-    height: fit-content;
+    height: 100%;
+    padding: 2.5rem;
 }
 
-#submit {
+#itinery-grid-left h3 {
+    color: var(--white);    
+}
+
+#submitBtn {
     display: block;
     width: 60%;
-    background-color: rgb(243, 87, 11 );
+    background-color: var(--btn);
     color: hsl(0, 0%, 100%);
     height: 40px;
     border: none;
@@ -166,112 +151,38 @@ select {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 auto;
+    margin-bottom: 2rem;
     cursor: pointer;
-    box-shadow: 2px 2px 12px 1px rgba(54, 54, 54, 0.75);
-    -webkit-box-shadow: 2px 2px 12px 1px rgba(54, 54, 54, 0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(54, 54, 54, 0.75);
+    box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.25);
 }
 
-#submit:hover {
+#AddStopButton {
+    width: 100%;
+    height: 40px;
+    background-color: var(--business);
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#SubmitBtn:hover, #AddStopButton:hover {
     background-color: rgb(234, 75, 6);
 }
 
-
-
-/* options section */
-
-.options {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr 1fr 0.2fr;
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
-    margin-top: 4rem;
-    margin-bottom: 5rem;
-    gap: 4rem;
-    
+.form-horizontal .col-form-label {
+    color: white;
     
 }
-.addvert1 {
-    grid-area: 1/2;
-    min-width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    background-image: url(./images/Moutohorā-Is.jpg);
-    background-size:cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -webkit-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-}
-
-.addvert2 {
-    grid-area: 1/3;
-    width: 100%;
-    height: auto;
-    background-color: rgba(201, 201, 202, 0.933) ;
-    display: flex;
-    flex-direction: row;
-    background-image: url(./images/Piha.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -webkit-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-}
-
-.addvert3 {
-    grid-area: 2/2;
-    width: 100%;
-    height: auto;
-    background-color: rgba(201, 201, 202, 0.933) ;
-    display: flex;
-    flex-direction: row;
-    background-image: url(./images/Taupo-Bungy-Mead-Norton.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -webkit-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-}
-
-.addvert4 {
-    grid-area: 2/3;
-    width: 100%;
-    height: auto;
-    background-color: rgba(201, 201, 202, 0.933);
-    background-image: url(./images/Hobbiton-Waikato-Miles-Holden\ \(6\).jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -webkit-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-    -moz-box-shadow: 2px 2px 12px 1px rgba(171,162,162,0.75);
-}
-
-.adCap {
-    display: flex;
-    align-items: flex-end;
-    margin-top: 13rem;
-    padding: .5rem;
-    color: var(--white);
-    font-weight: 700;
-    background-color: rgba(32, 31, 31, 0.35);
-}
-
 
 /* results area */
 .results {
     display: flex;
     justify-items: center;
-    /* align-items: center; */
     margin-top: 4rem;
     margin-bottom: 4rem;
     gap: 4rem;
@@ -298,36 +209,44 @@ select {
     justify-content: space-between;
     margin-top: .5rem;
     margin-bottom: .5rem;
-
 }
 
-.hrule {
-    width: 70%;
-    height: .125px;
-    background-color: var(--grey);
-    margin-bottom: .8rem;
+/* google maps area */
+.fa-diamond-turn-right {
+    color: var(--white);
 }
 
-#map-area {
-    display: flex;
-    flex-direction: row;
+.jumbotron {
+    background-color: transparent;
+    margin: 0;
+    padding: 10px;
+}
+
+.jumbotron h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.jumbotron h1,
+.jumbotron p {
+    text-align: center;
+}
+
+.jumbotron p {
+    font-size: 2rem;
+}
+
+.right-icon {
+    margin-bottom: 1.5rem;
+}
+
+#googleMap {
     width: 100%;
-    height: 350px;
+    height: 400px;
+    margin-top: 2rem;
 }
 
-#map {
-    
-    width: 100%;
-    height: auto;
-
-}
-
-#output {
-    display: flex;
-    width: 100%;
-    height: auto;
-}
-
+/* foooter area */
 footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -344,8 +263,35 @@ footer {
     height: auto;    
 }
 
+#results {
+    display: none;
+}
 
-
+#ResultContainer {
+    width: 80%;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto; 
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+#ResultContainer div {
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 25%;
+    font-size: smaller;
+}
+#ResultContainer img {
+    width: 100%;
+}
+#TotalPrice, #TotalFuel, #Total {
+    margin: unset;
+    font-weight: 700;
+}
+#TotalPrice{
+    margin-top: 20px;
+}
 
 
 

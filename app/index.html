@@ -4,134 +4,136 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href="https://code.jquery.com/ui/1.13.2/themes/dot-luv/jquery-ui.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/76e1738d5e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/dot-luv/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <link rel="stylesheet" href="./main.css" />
-    <!-- <link rel="stylesheet" href="./date-picker.css" /> -->
     <title>New Zealand Tourism</title>
   </head>
   <body>
     <main class="app">
-  
-      <section class="main-section">
-        <header>
+      
+      <header class="page-header">
+        <!-- top nav bar area with covid/language links -->
+        <div class="top-nav">
           <h5 class="covidLink">
           Important information regarding Covid-19
           </h5>
           <h5 class="lang">ENG/NZ</h5>
-        </header>
-        
-        <section class="page-title">
-          <h2>New Zealand Tourism</h2>
-        </section>
+        </div>
+        <!-- header background pick and title of page -->
+        <h2 class="page-title">New Zealand Tourism</h2>
+        <!-- introduction sentence advising to enter details to get travel options -->
         <h3 class="intro">
           To help us locate the best travel option for your stay, please enter the following information
         </h3>
-        
-        <section class="date-selection">
-        
-          <form id="pickUp" action="" method="post" autocomplete="off">
-            <h3 class="selectPickUpDropOff">Select pick up</h3>
-            <div class="location">
-              <select type="text" id="origin">
-                <option value="auckland">Auckland</option>
-                <option value="hamilton">Hamilton</option>
-                <option value="new-plymouth">New Plymouth</option>
-                <option value="tauranga">Tauranga</option>
-                <option value="wellington">Wellington</option>
-                <option value="picton">Picton</option>
-                <option value="nelson">Nelson</option>
-                <option value="hanmer-springs">Hanmer Springs</option>
-                <option value="christchurch">Christchurch</option>
-                <option value="queenstown">Queenstown</option>
-                <option value="dunedin">Dunedin</option>
-                <option value="invercargill">Invercargill</option>
-              </select>
-              <div class="date-time">
-                <input type="text" id="depart" placeholder="depart date">
-                <input type="time" id="time">
+      </header>
+
+      <!-- itinery section  -->
+      <section class="itinery-wrapper">
+        <div id="itinery-grid-left">
+          <h3 class="selectPickUpDropOff">Itinerary</h3>
+          <div id="Itinery">
+            <div class="itinerary-locations">
+              <form class="form-horizontal">
+                <!-- depart calendar -->
+                <div class="form-group label-input">
+                  <label for="depart" class="col-sm-3 col-form-label">Departure date</label>
+                  <div class="col-xs-6">
+                    <input class="form-control" type="text" id="depart" name="depart" placeholder="depart date" value="" autocomplete="off">
+                  </div>
+                </div>
+                <!-- return calendar -->
+                <div class="date-time form-group">
+                  <label for="return" class="col-xs-3 col-form-label">Return date</label>
+                  <div class="col-xs-6">
+                    <input class="form-control" type="text" id="return" name="return" placeholder="return date" value="" autocomplete="off">
+                  </div>
+                </div>
+                <!-- passenger selector -->
+                <div class="form-group">
+                <label for="return" class="col-xs-3 col-form-label"> Passengers</label>
+                <div class="col-xs-6">
+                  <select id="passengers" class="form-control col-xs-4" value="passengers">
+                    <option>select number of passengers</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                </div>
+                </div>
+                <!-- start location -->
+                <div class="form-group">
+                  <label for="from" class="col-xs-3 col-form-label">Starting location</label>
+                  <div class="col-xs-6">
+                    <input type="text" id="from" placeholder="Enter your starting point" class="form-control">
+                  </div>
+                </div>
+                <!-- final destination -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="to" class="col-xs-3 col-form-label">Final destination</label>
+                    <div class="col-xs-6">
+                      <input type="text" id="to" placeholder="Enter you final destination" class="form-control">
+                    </div>
+                    <div class="col-xs-3">
+                      <button type="button"  id="AddStopButton">add stopover</button>
+                    </div>
+                  </div>            
+                </div>
               </div>
-              <select id="passengers" value="passengers">
-                <option>Passengers</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
             </div>
           </form>
 
-          <form id="dropOff" action="" method="post" autocomplete="off">
-            <h3 class="selectPickUpDropOff">Select drop off</h3>
-            <div class="location">
-              <select type="text" id="destination">
-                <option>Same as pick up</option>
-                <option value="auckland">Auckland</option>
-                <option value="hamilton">Hamilton</option>
-                <option value="new-plymouth">New Plymouth</option>
-                <option value="tauranga">Tauranga</option>
-                <option value="wellington">Wellington</option>
-                <option value="picton">Picton</option>
-                <option value="nelson">Nelson</option>
-                <option value="hanmer-springs">Hanmer Springs</option>
-                <option value="christchurch">Christchurch</option>
-                <option value="queenstown">Queenstown</option>
-                <option value="dunedin">Dunedin</option>
-                <option value="invercargill">Invercargill</option>
-              </select>
-              <div class="date-time">
-                <input type="text" id="return" placeholder="return date">
-                <input type="time" id="time">
+              <!-- div to show distance/time results from google maps -->
+              <div id="output">
+                <p id="locResult"></p>
+                
               </div>
-              <select id="passengers" value="passengers">
-                <option>Passengers</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
             </div>
-          </form>
-        </section>
+          </div>
 
-        <section class="submit">
-          <button id="submit" type="submit" onclick="">submit</button>
-        </section>
+          <div class="jumbotron">
+            <div class="container-fluid">
+                <h1>Find the distance between two places</h1>
+                <p>This app will help you calculate your travelling distance</p>
+            </div>
+            
+            <div class="col-xs-offset-2 col-xs-10 right-icon">
+                <button class="btn btn-info btn-lg" onclick="calcRoute()"><i class="fa-solid fa-diamond-turn-right"></i></button>
+            </div>
 
+            <div class="container-fluid">
+              <div id="googleMap">
+            </div>
+                
+          </div>
+        </div>
       </section>
 
-      <section class="options">
+      <section class="submit">
+        <button type="button" class="button" id="submitBtn" onclick="getLoc()">submit</button>
+      </section>
+
         
-        <div class="addvert1">
-          <p class="adCap">Top New Zealand travel iteneries</p>
-        </div>
-          
-        <div class="addvert2">
-          <p class="adCap">Driving around New Zealand</p>
-        </div>
 
-        <div class="addvert3">
-          <p class="adCap">Things to do</p>
-        </div>
-          
-        <div class="addvert4">
-          <p class="adCap">Places to see</p>
-        </div>
-      </section>
+      
 
-      <section class="results">
+      
 
+      <!-- <section class="results">
         <div class="results-pic">
           <img class="results-pic" src="./images/motorbike.png">
         </div>
-
         <div class="results-specs">
-          <h4>2022 Yamaha RZ150</h4>
-          <!-- <div class="hrule"></div> -->
+          <h4>2022 Yamaha RZ150</h4>         
           <div class="specs">
             <p>3.7L/100km</p>
             <p>$109 per day</p>
@@ -144,14 +146,9 @@
             for both comfort and speed.
           </p>
         </div>
-   
+      </section> -->
 
-      </section>
-
-      <section class="results" id="map-area">
-        <div id="map"></div>
-        <div id="output"></div>
-      </section>
+      
 
       <footer>
         <div class="container">
@@ -185,13 +182,13 @@
 
     </main>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- <script src="https://code.jquery.com/jquery-2.2.4.js"></script> -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script async
-    src="https://maps.googleapis.com/maps/api/js?key=yourAPIKey&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWY8fdswUsmJTb2IMFkey3tabqmSkFxwU&libraries=geometry,places&callback=initMap">
     </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <script src="./main.js"></script>
     
   </body>

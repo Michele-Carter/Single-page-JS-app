@@ -1,29 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
+/////////////////////// Date Picker Function (jQuery) //////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-
-// get selected location option and listen for change
-$(document).ready(function(){
-	$("select").change(function(){
-		var myvalue = $(this).val();
-		alert("You have selected : "+myvalue);  //comment this out - do something else with value grabbed e.g. put into maps to calc distance
-	});
-});
-
-// get selected location option on button click
-$(document).ready(function(){
-	$("button").click(function(){
-		var myvalue3 = $('select').find(':selected').val();
-		alert("You have selected : "+myvalue3);  //comment this out - do something else with value grabbed e.g. put into maps to calc distance
-	});
-});
-
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-
-// date picker function
 $(document).ready(function () {
   let minDate = new Date();
   $("#depart").datepicker({
@@ -47,95 +25,114 @@ $(document).ready(function () {
   });
 });
 
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////// Hide Ads/Show Results Div /////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// hide results div by default on page load
-function pageLoad() {
-  $(".results").hide();
-}
-
-pageLoad();
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// on submit button click, hides pics and shows results instead
 $(function () {
   $("button").click(function () {
     $(".options").remove();
   });
   $("button").click(function () {
-    $(".results").show();
+    $("#results").show();
   });
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////// Itinery Section /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-/* map initialiser */
-function initMap() {
-    // map options
-    let mapOptions = {
-        zoom: 8,
-        center: {lat: -36.8509, lng: 174.7645},
-        mapTypeid: google.maps.MapTypeId.ROADMAP
-    };
-
-    // new map
-    let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    // add marker
-    let marker = new google.maps.Marker({
-        position: {lat: -36.8509, lng: 174.7645},
-        map: map
-    })
+/* get values from location input fields when submit btn is clicked */
+  function getLoc() {
+    let startLoc = document.getElementById('location0').value;
+    let finishLoc = document.getElementById('location1').value;
+    // this works - the below line of code was just a test to make 
+    // sure it was grabbing the values from the location input 
+    // fields so I can do something with it when I get the Distance
+    // Matrix API working
+    document.getElementById('locResult').innerHTML = startLoc + " " + finishLoc;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////  Google Maps  ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
+// create map 
+let map;
 
-// create directions serive object to use the route method and get result
-var directionsService = new google.maps.DirectionsSercice();
+// create directionsService;
+let DirectionsRenderer;
 
-// create a DirectionsRender object which we will use to display the route
-var directionsRenderer = new google.maps.DirectionsRenderer();
+// create directions service object
+let directionsService;
 
-// bind the directions render to the map
-directionsRenderer.setMap(map);
+// create render used to display services
+let directionsDisplay;
 
-// function
+// create autocomplete objects for all inputs
+let options = {
+    types: ['(cities)']
+};
+let input1 = document.getElementById("from");
+let autocomplete1;
+let input2 = document.getElementById("to");
+let autocomplete2;
+
+// create a function to initialise a new map with some map options and set a starting marker on the map
+function initMap() {
+  // new map
+  map = new google.maps.Map(document.getElementById('googleMap'), {
+    // map options
+    zoom: 8,
+    center: {lat: -36.8509, lng: 174.7645},
+    mapTypeid: google.maps.MapTypeId.ROADMAP
+  });
+
+  // add marker to the location of Auckland
+  let marker = new google.maps.Marker({
+      position: {lat: -36.8509, lng: 174.7645},
+      map: map
+  });
+
+  // create the google maps directions service and display 
+  directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer();
+
+  // add autocomplete functions to the location input boxes
+  autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+  autocomplete2 = new google.maps.places.Autocomplete(input2, options);
+}
+
+// wait for page to load and once ready initialise google maps
+$(document).ready(function() {
+  initMap()
+  // bind directions render to the map
+    directionsDisplay.setMap(map);
+});
+
+// function to calc distance
 function calcRoute() {
     // create request
     let request = {
-        origin: document.getElementById("#origin").value,
-        destination: document.getElementById("#destination").value,
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.IMPERIAL
+        origin: document.getElementById('from').value,
+        destination: document.getElementById('to').value,
+        travelMode: google.maps.TravelMode.DRIVING, 
+        unitSystem: google.maps.UnitSystem.METRIC
     }
-
     // pass request to route method
-    DirectionsService.route(request, (result, status) => {
-        if (status == google.maps.DirectionsStatus.OK) {
-
+    directionsService.route(request, (result, status) => {
+        if(status == google.maps.DirectionsStatus.OK) {
             // get distance and time
-            const output = document.querySelector("#output");
-            output.innerHTML = "<div class='alert-info'> from: " + document.getElementById("#origin").value + " + .<br />To: " + document.getElementById("#destination").value + ". <br /> Driving distance:" + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ". </div>";
-
-            // display route
-            directionsDisplay.setDirections(result);
+            let output = document.querySelector('#output');
+            output.innerHTML = "<div class='alert-info'> From: " + document.getElementById('from').value + ".<br/> To: " + document.getElementById('to').value + ". <br/> Driving distance <i class='fa-sharp fa-solid fa-road'></i>:" + result.routes[0].legs[0].distance.text + ".<br />Duration <i class='fa-solid fa-hourglass-start'></i> : " + result.routes[0].legs[0].duration.text + ". </div>";
+             // display route 
+             directionsDisplay.setDirections(result);
         } else {
             // delete route from map
-            directionsDisplay.setDirections({ routes:[]});
-
-            // center map back to starting point
-            map.setCentre({lat: -36.8509, lng: 174.7645});
-
+            directionsDisplay.setDirections({ routes: []});
+            // center map back to auckland
+            map.setCenter({lat: -36.8509, lng: 174.7645});
             // show error message
-            output.innerHTML = "<div class='alert-danger'>Could not retrieve driving distance.</div>";
-        }
+            output.innerHTML = "<div class='alert-danger'><i class='fa-solid fa-triangle-exclamation'></i> Could not retrieve driving distance. </div>";
+        }    
     });
 }
-
