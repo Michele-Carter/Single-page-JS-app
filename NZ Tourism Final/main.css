@@ -5,11 +5,11 @@
     --light: #eee;
     --grey: #888;
     --dark: #313154;
-    --darker: #1c1c2d;
+    --darker: #171717;
     --darkest: rgb(0, 0, 0);
     --danger: #ff5b57;
     --shadow: 0 1 3px rgba(0, 0, 0, 0.1);
-    --btn: #f3570b;
+    --btn: #41913c;
     --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
     --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
@@ -23,10 +23,10 @@
 }
 
 body {
-    background: var(--light);
+    background: var(--white);
     color: var(--dark);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 h2 {
@@ -37,6 +37,10 @@ h3 {
     color: var(--dark);
     font-size: 1.65rem;
     font-weight: 700;   
+}
+
+p {
+    color: var(--grey);
 }
 
 
@@ -97,11 +101,11 @@ h3 {
     gap: 2rem;
     justify-content: center;
     padding: 2.5rem; 
+    min-height: 400px;
 }
 
 /* styling for left hand side of itinerary (form area) */
 #itinery-grid-left {
-    background-color: var(--dark);
     border-radius: 5px;
     width: 48%;
     height: 100%;
@@ -109,7 +113,7 @@ h3 {
 }
 
 #itinery-grid-left h3 {
-    color: var(--white);    
+    color: var(--grey);    
 }
 
 
@@ -117,14 +121,13 @@ h3 {
 form {
     width: 100%;
     margin: 2.5rem auto;
-    background-color: rgb(255, 255, 255, 0.35);
     padding: 1rem;
     border-radius: 5px;
 }
 
 /* make label text white */
 .form-horizontal .col-form-label {
-    color: white;   
+    color: var(--grey);   
 }
 
 
@@ -172,7 +175,7 @@ form {
 .alert-info {
     width: 100%;
     background-color: rgb(255, 255, 255, 0.35);
-    color: var(--white);
+    color: var(--grey);
     padding: 1.5rem;
     line-height: 2;
     border-radius: 5px;
@@ -181,23 +184,20 @@ form {
 
 /* FOOTER AREA */
 footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%;
+    min-height: 20rem;
     background-color: var(--darker);
-    align-items: center;
     margin-top: 5rem;
-}
-
-footer .firstCol {
-    padding-left: 2.5rem;
+    padding: 2.5rem;
+    gap: 1.5rem;
 }
 
 .bottomLogo {
     margin-top: 2rem;
-    width: 150px;
+    max-width: 150px;
     height: auto;    
 }
 
@@ -209,12 +209,8 @@ footer .firstCol {
 /* RESULTS AREA */
 .results {
     display: none;
-    /* flex-direction: row;
-    justify-content: center;
-    align-items: center; */
     margin-top: 4rem;
     margin-bottom: 4rem;
-    /* gap: 4rem;    */
     padding: 0 2.5rem;
 }
 
@@ -223,28 +219,20 @@ footer .firstCol {
 }
 
 #ResultContainer {
-    /* max-width: 100%; */
     max-width: 1000px;
     height: auto;
     margin: 2rem auto; 
-    /* display: flex; */
     display: grid;
-    /* flex-direction: row; */
     gap: 2rem;    
-    /* flex-wrap: wrap;
-    justify-content: center; */
     grid-template-columns: repeat(auto-fill, minmax(320px, 2fr));
 }
 
 #ResultContainer div {
-    /* flex-direction: column; */
     padding: 20px;
     width: 100%;
     height: auto;
     font-size: smaller;
     background-color: var(--white);
-    /* flex-grow: 1;
-    max-width: 440px; */
 }
 
 #ResultContainer img {
@@ -256,34 +244,35 @@ footer .firstCol {
     margin: unset;
     font-weight: 700;
 }
+
 #TotalPrice{
     margin-top: 20px;
 }
 
 /* MOBILE DEVICES */
-@media not all and (min-width: 750px) {
+@media not all and (min-width: 800px) {
+    .top-nav h5 {
+        font-size: smaller;
+    }
+
+    .form-horizontal {
+        padding: 0;
+    }
+
     #itinery-grid-left , #googleMap {
         width: 100%;
+        padding: 0;
     }
-
-    /* #ResultContainer {
-        max-width: 90%;   
-    }
-
-    #ResultContainer div {
-        min-width: 100%;
-        flex-grow: 1;
-    } */
 
     footer {
-        /* grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); */
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
     }
 }
-
-
-
-
 
 form .error {
     color: var(--danger);

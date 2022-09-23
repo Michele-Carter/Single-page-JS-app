@@ -41,46 +41,66 @@
 
               <form class="form-horizontal" name="myForm" id="myForm">
                 <!-- depart calendar -->
-                <div class="form-group label-input">
-                  <label for="departdate" class="col-xs-5 col-form-label">Departure date</label>
-                  <div class="col-xs-6">
-                    <input class="form-control loc" type="text" id="departdate" name="departdate" placeholder="depart date" autocomplete="off" required>
+                <div class="form-group">
+                  <div class="form-row">
+                  <div class="col">
+                    <label for="departdate" class="col-xs-4 col-form-label">Depart</label>
+                    <div class="col-xs-8">
+                      <input class="form-control form-control-sm loc" type="text" id="departdate" name="departdate" placeholder="Departure date" autocomplete="off" required>
+                    </div>
+                  </div>
                   </div>
                 </div>
                 <!-- return calendar -->
-                <div class="form-group label-input">
-                  <label for="returndate" class="col-xs-5 col-form-label">Return date</label>
-                  <div class="col-xs-6">
-                    <input class="form-control loc" type="text" id="returndate" name="returndate" placeholder="return date" autocomplete="off" required>
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col">
+                      <label for="returndate" class="col-xs-4 col-form-label">Return</label>
+                      <div class="col-xs-8">
+                        <input class="form-control form-control-sm loc" type="text" id="returndate" name="returndate" placeholder="Return date" autocomplete="off" required>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- passenger selector -->
                 <div class="form-group">
-                <label for="passengers" class="col-xs-5 col-form-label"> Passengers</label>
-                <div class="col-xs-6">
-                  <select id="passengers" class="form-control col-xs-4" name="passengers" required>
-                    <option value="">select number of passengers</option>
+                  <div class="form-row">
+                  <div class="col">
+                    <label for="passengers" class="col-xs-4 col-form-label"> Passengers</label>
+                    <div class="col-xs-8">
+                      <select id="passengers" class="form-control form-control-sm col-xs-4" name="passengers" required>
+                    <option value="">Select number of passengers</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
-                  </select>
-                </div>
+                      </select>
+                    </div>
+                  </div>
+                  </div>
                 </div>
                 <!-- start location -->
                 <div class="form-group">
-                  <label for="from" class="col-xs-5 col-form-label">Starting location</label>
-                  <div class="col-xs-6">
-                    <input type="text" id="from" name="from"  placeholder="Enter your starting point" class="form-control loc location-field" required>
+                  <div class="form-row">
+                  <div class="col">
+                    <label for="from" class="col-xs-4 col-form-label">Origin</label>
+                    <div class="col-xs-8">
+                    <input type="text" id="from" name="from"  placeholder="Enter your starting point" class="form-control loc form-control-sm location-field" required>
+                    </div>
+                  </div>
                   </div>
                 </div>
                 <!-- final location -->
                 <div class="form-group">
-                  <label for="to" class="col-xs-5 col-form-label">Final destination</label>
-                  <div class="col-xs-6">
-                    <input type="text" id="to" name="to"  placeholder="Enter your final destination" class="form-control loc location-field" required>
+                  <div class="form-row">
+                  <div class="col">
+                    <label for="to" class="col-xs-4 col-form-label">Destination</label>
+                    <div class="col-xs-8">
+                      <input type="text" id="to" name="to"  placeholder="Enter your final destination" class="form-control form-control-sm loc location-field" required>
+                    </div>
+                  </div>
                   </div>
                 </div>
               </form>
@@ -91,7 +111,7 @@
               <div id="output">
                 <p id="locResult"></p>
               </div>
-              <div class="total-distance">Total <span id="Distance">0</span> km</div>
+             
 					  </div>
           </div>
         </div>          
