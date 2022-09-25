@@ -121,7 +121,6 @@ p {
 form {
     width: 100%;
     margin: 2.5rem auto;
-    padding: 1rem;
     border-radius: 5px;
 }
 
@@ -160,7 +159,7 @@ form {
 }
 
 #submitBtn:hover {
-    background-color: rgb(233, 130, 86);
+    background-color: #387f33;
 }
 
 

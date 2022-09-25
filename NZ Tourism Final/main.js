@@ -25,36 +25,7 @@ $(document).ready(function () {
   });
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////// Itinery Section /////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
-// const addStopBtn = document.querySelector('#AddStopButton');
-// const itineraryContainer = document.querySelector('#itinery-grid-left');
-// const dropDownCloseIcons = document.querySelectorAll('.location .close');
-// let numLocFields = 0;
-
-// window.addEventListener('load', (evt) => {
-//     const fieldWidth = itineraryContainer.children[0].querySelector('.chosen-container').offsetWidth;
-//     addStopBtn.addEventListener('click', ()=>{
-//         numLocFields ++;
-//         const targetLoc = itineraryContainer.children[numLocFields];
-//         targetLoc.classList.remove('hide');
-//         targetLoc.querySelector('.chosen-container').style.width = fieldWidth + 'px';
-//     });
-//     dropDownCloseIcons.forEach((closeIcon, index) => {
-//         closeIcon.addEventListener('click', ()=>{
-//             const targetLoc = itineraryContainer.children[index+1];
-//             targetLoc.querySelector('.location-field').children[0].setAttribute('selected', 'selected');
-//             targetLoc.classList.add('hide');
-//             setLocationArray();
-//             if($('#ResultContainer').is(':visible')){
-//                 setTimeout(() => { //wait for Direction API to update the distance value
-//                       getValShowResult();
-//                 }, "2000");
-//             }
-//         });
-//     });
-// });
 
 /////////////////////////////////////////////////////////////////////////////////////// Get values from itinery input fields and display the results ///////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -76,15 +47,6 @@ function getValShowResult() {
   //distance
   let distance = document.getElementById('distanceText').innerHTML;
   distance = parseInt(distance.replace(' km',''));
-
-  console.log(`
-      Departing: ${departDateTime}
-      Returning: ${returnDateTime}
-      Duration: ${duration} Days
-      Passengers: ${passengers}
-      Distance: ${distance} km
-  `);
-  //get results
  
   showResultContainer(passengers, duration, distance);
 }
@@ -170,7 +132,7 @@ for (let index in transport){
    optionContainer.appendChild(image);
    //add info
    const infoArr = [vehicle, capacity, period, price, fuel];
-   infoArr.forEach((arrayItem) => {inner += arrayItem + '<br>'});
+   infoArr.forEach((arrayItem) => {inner += arrayItem + '<br>';});
    const info = document.createElement('p');
    info.innerHTML = inner;
    optionContainer.appendChild(info);
@@ -187,8 +149,7 @@ for (let index in transport){
    optionContainer.appendChild(totalFuel);
    optionContainer.appendChild(totalCost);
    //append the whole thing
-   results.appendChild(optionContainer);
-    
+   results.appendChild(optionContainer);    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -222,6 +183,12 @@ function showResultContainer(passengers, duration, distance){
         document.querySelector(`#transport${option.id}`).querySelector('#Total').textContent = `Total cost: $ ${total} approx.`;
     }
     $('.results').show();
+    $('.form-control').change(function(){
+      getValShowResult();
+      setTimeout(() => {
+        calcRoute();
+      }, 1000);
+    });
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -230,9 +197,6 @@ function showResultContainer(passengers, duration, distance){
 
 // create map 
 let map;
-
-// create directionsService;
-let DirectionsRenderer;
 
 // create directions service object
 let directionsService;
@@ -269,12 +233,6 @@ function initMap() {
     mapTypeid: google.maps.MapTypeId.ROADMAP
   });
 
-  // add marker to the location of Auckland
-  // let marker = new google.maps.Marker({
-  //     position: {lat: -36.8509, lng: 174.7645},
-  //     map: map
-  // });
-
   // set the google maps directions service and display 
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -284,10 +242,8 @@ function initMap() {
   autocomplete2 = new google.maps.places.Autocomplete(input2, options); 
 }
 
-
 // function to calc distance
 function calcRoute() {
-    let distance;
     // create request
     let request = {
         origin: document.getElementById('from').value,
@@ -299,7 +255,6 @@ function calcRoute() {
     directionsService.route(request, (result, status) => {
         if(status == google.maps.DirectionsStatus.OK) {
             // get distance and time
-            let output = document.querySelector('#output');
             let distance = '<span id="distanceText">' + result.routes[0].legs[0].distance.text + '</span>';
             let duration = result.routes[0].legs[0].duration.text;
             let fromVal = document.getElementById('from').value;
